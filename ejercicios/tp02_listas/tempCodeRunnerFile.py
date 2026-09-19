@@ -1,12 +1,8 @@
-def registrar_socios(lista_socios:list[int],cant_ingresos:list[int])->None:
-    """
-    regitra a los socios nuevos y cuenta cuantos ingresos tuvieron
-    pre:
-    post:registra a los socios y sus ingresos al sistema
-    """
+def registrar_socios()->tuple[list[int],list[int]]:
 
     while True:
-
+        lista_socios=[]
+        cant_ingresos=[]
         socio = int(input("ingrese el numero de socio: "))
 
         if socio ==0:
@@ -23,23 +19,13 @@ def registrar_socios(lista_socios:list[int],cant_ingresos:list[int])->None:
     return lista_socios, cant_ingresos
 
 def informar_ingresos(list_socios:list[int],cant_ingresos:list[int])->None:
-    """
-    muestra a todos los socios del sistema y sus ingresos 
-
-    pre: las listas recibidas deben de tener almenos un elemento
-    post:muestra por pantalla a todos los socios y sus ingresos
-    """
 
     for i,socio in enumerate(list_socios):
         print(f"el socio {socio} ingreso {cant_ingresos[i]} veces")
 
 
 def baja_socio(list_socios:list[int],cant_ingresos:list[int])->None:
-    """
-    elimina a un socio del sistema e informa cuantos ingresos se eliminaron
-    pre: las listas recibidas deben de tener almenos un elemento
-    post:elimina a los socios y sus ingresos, e imprime por pantalla la lista nueva y cuantos ngresos se borraron
-    """
+
     while True:
         baja = int(input("ingrese el numero de socio que se dio de baja: "))
 
@@ -51,26 +37,20 @@ def baja_socio(list_socios:list[int],cant_ingresos:list[int])->None:
     for i,socio in enumerate(list_socios):
             print(f"el socio {socio} ingreso {cant_ingresos[i]} veces")
 
-    borrados=cant_ingresos.pop(list_socios.index(baja))
+    cant_ingresos.remove(cant_ingresos[list_socios.index(baja)])
     list_socios.remove(baja)
-
-    print("")
-    print(f"se dio de baja el socio {baja}")
 
     for i,socio in enumerate(list_socios):
         print(f"el socio {socio} ingreso {cant_ingresos[i]} veces")
-    print(f"se eliminaron {borrados} ingresos")
+
 
 def main():
 
-    lista_socios=[]
-    cant_ingresos=[]
+    list_socios ,cant_ingresos = registrar_socios()
 
-    registrar_socios(lista_socios,cant_ingresos)
+    informar_ingresos(list_socios, cant_ingresos)
 
-    informar_ingresos(lista_socios, cant_ingresos)
-
-    baja_socio(lista_socios, cant_ingresos)
+    baja_socio(list_socios, cant_ingresos)
 
 if __name__=='__main__':
     main()
