@@ -39,4 +39,8 @@ def main ()-> None:
         print("fecha invalida")
 
 if __name__ == '__main__':
+
+    assert validar_fecha(29,2,2020)==True
+    assert validar_fecha(29,2,2019)==False
+    assert validar_fecha(31,3,2018)== True
     main()

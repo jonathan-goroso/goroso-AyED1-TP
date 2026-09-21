@@ -32,4 +32,6 @@ def main():
 
 if __name__=='__main__':
 
+    assert normalizar([1,1,2])== [0.25,0.25,0.50]
+
     main()
