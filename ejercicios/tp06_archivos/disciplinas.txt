@@ -1,7 +1,0 @@
-rgby
-altura atleta 1:234
-altura atleta 2:15u
-altura atleta 3:178
-altura atleta 4:227
-altura atleta 5:235
-altura atleta 6:-q
